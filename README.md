@@ -142,3 +142,9 @@ Note:  why need server action ?
 
 
 </details>
+
+The basic setup is somewhat complete here- we will now proceed to write components
+<br />
+
+# Server Component Vs Client Component 
+--------------------------------------
