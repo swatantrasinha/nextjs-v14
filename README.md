@@ -132,6 +132,9 @@ Also we will add this function createSnippet in form action
  <form action={createSnippet}> .....
 ```
 
+This is the first implementation of Server Action
+
+
 Note:  why need server action ?
 - see earlier working : See => 03-traditional-react-app.png
 - what changes in next js: See => 04-nextjs-world.png
@@ -148,3 +151,63 @@ The basic setup is somewhat complete here- we will now proceed to write componen
 
 # Server Component Vs Client Component 
 --------------------------------------
+We saw how can we change data using Server Actions, now we will see how we can fetch and display data
+<br />
+Below are the steps: 
+1. Create a server component - a component that does not have 'use Client' at top
+2. Mark component as async
+3. make an HTTP request or directly access DB to get the data
+4. render data directly or pass to child component
+
+<br />
+Server component: 
+When we work with Next JS some of our code runs on server and some on the client
+<br />
+So Next JS is composed of Server Component + Client Components
+<br />
+
+Server Components: 
+- differs from traditional component gives better perforamce + UX
+- closely integrated with Next JS
+- all components by default in Next JS are server components
+- can use async/await directly, no need to useState or useEffect for data fetching
+- have few limitations- can't use any kind of hook
+- cannot assign any event handler
+  <br />
+Note: As much as possbile we should prefer using Server components
+
+
+<br />
+
+Client Component
+- same kind of React components we are usig earlier
+- 'use client' at the top of file
+- can use hooks and event handler
+- generally cannot directly show a server component (some exception possible
+  <br />
+Note : use client component if need to use hook or event handler
+
+Whenever browser make request to Next Server we need to send some HTML immediately <br />
+
+See 06-ServerComp-and-ClientComp.png
+
+### First request
+In this case, Server Component (Parent) and Client Component(Child) is rendered in HTML file and send to user's browser
+<br />
+this HTML file has some plain HTML content inside it <br />
+and a script tag inside it that tries to download JS from next server<br />
+
+### Second request
+The HTML files in client side browser makes request to next server and next server looks at all client components 
+and extract JS from client component and send the extracted JS into browser
+Note : even though client component is named "client", it gets rendered one time on server when user first make request
+
+
+
+
+  
+
+
+- 
+
+
