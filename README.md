@@ -127,7 +127,7 @@ In SnippetCreatePage, we will import db at top and  before returning JSX we will
 Also we will add this function createSnippet in form action
 
 
-> ** <form action={createSnippet}> .....
+> =>  <form action={createSnippet}> .....
 
 Note:  why need server action ?
 - see earlier working : See => 03-traditional-react-app.png
