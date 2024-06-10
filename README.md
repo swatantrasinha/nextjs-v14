@@ -245,3 +245,10 @@ to test - http://localhost:3000/snippets/new
 <br />
 </details>
 
+
+<details>
+  <summary> Adding Dynamic Paths </summary>
+
+  
+</details>
+
