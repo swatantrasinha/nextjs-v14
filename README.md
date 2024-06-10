@@ -203,11 +203,41 @@ and extract JS from client component and send the extracted JS into browser
 Note : even though client component is named "client", it gets rendered one time on server when user first make request
 
 
+Now we will follow all the 4 steps mentioned above: 
+1. Creating Server component
+    In src- app - page.tsx
+   <br />
+since use client is not there its a server component only
 
+2. mark component async
 
-  
+3. make an HTTP request or directly access DB to get the data
+   <br />
+   In this case we have to acccess DB
 
+4. Render data directly or pass to child component
+in this case we will render list of snippets
 
-- 
+the comlete code for : src -> app -> page.tsx is below
+```javascript
+import {db} from '@/db';
 
+export default async function Home() {
+  const snippets= await db.snippet.findMany();
+  const renderedSnippets= snippets.map((snippet) => {
+    return (<div key={snippet.id}>
+      {snippet.title}
+    </div>)
+
+  })
+  return (
+    <div>
+      {renderedSnippets}
+    </div>
+  );
+}
+```
+
+to test - http://localhost:3000/snippets/new
+<br />
 
