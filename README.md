@@ -248,7 +248,42 @@ to test - http://localhost:3000/snippets/new
 
 <details>
   <summary> Adding Dynamic Paths </summary>
+Till now we saw:  <br/> 
+- creating snippet
+- fetching snippets
+<br />
+We will see how to view/edit/delete snippet <br />
 
-  
+to view snippet - we will make sure page url is /snippets/{snippedId}
+<br />
+inside src -> app -> snippets
+<br />
+create a new folder- [id] and then new file page.tsx
+<br />
+
+```javascript
+import { notFound } from "next/navigation";
+import { db } from "@/db"
+
+interface SnippetShowPageProps {
+    params: {
+        id: string;
+    }
+}
+
+export default async function SnippetShowPage(props:SnippetShowPageProps) {
+    const snippet= await db.snippet.findFirst({
+        where: {id: parseInt(props.params.id)}
+    })
+    console.log('SnippetShowPage => props: ', props)
+    if(!snippet) {
+        return notFound();
+    }
+
+    return(<div>{snippet.title}</div>)
+}
+```
+
+To test : http://localhost:3000/snippets/1 - will display snippet title
 </details>
 
