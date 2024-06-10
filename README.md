@@ -160,6 +160,9 @@ Below are the steps:
 4. render data directly or pass to child component
 
 <br />
+<details>
+  <summary> Difference Between Server and Client Components </summary>
+  
 Server component: 
 When we work with Next JS some of our code runs on server and some on the client
 <br />
@@ -240,4 +243,5 @@ export default async function Home() {
 
 to test - http://localhost:3000/snippets/new
 <br />
+</details>
 
