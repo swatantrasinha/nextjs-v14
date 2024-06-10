@@ -3,7 +3,10 @@
 <details>
   <summary> Create Project- snippets </summary>
 > npx create-next-app@latest
+
+
 project name: snippets
+<br />
 all options yes but only last one no ==>  change default import alias : No
 
 > cd snippets
@@ -12,6 +15,7 @@ all options yes but only last one no ==>  change default import alias : No
 <details>
   <summary> SetUp for Prisma </summary>
 ## prisma setup
+
 > npm install prisma
 > npx prisma init --datasource-provider sqlite  
 <br />
