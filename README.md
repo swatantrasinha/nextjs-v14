@@ -17,6 +17,7 @@ all options yes but only last one no ==>  change default import alias : No
 ## prisma setup
 
 > npm install prisma
+<br />
 > npx prisma init --datasource-provider sqlite  
 <br />
 
@@ -127,7 +128,9 @@ In SnippetCreatePage, we will import db at top and  before returning JSX we will
 Also we will add this function createSnippet in form action
 
 
-> =>  <form action={createSnippet}> .....
+```javascript
+ <form action={createSnippet}> .....
+```
 
 Note:  why need server action ?
 - see earlier working : See => 03-traditional-react-app.png
