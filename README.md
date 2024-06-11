@@ -460,6 +460,7 @@ Now lets add link to above page in Edit button of view snippets page
 <br />
 Also we will change Edit Button to Link <br />
 We will remove this <br />
+
 ```javascript
 <button className="p2 border rounded">Edit</button>
 ```
