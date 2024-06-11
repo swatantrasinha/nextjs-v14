@@ -297,8 +297,10 @@ In the above code inside function SnippetShowPage , we saw below code :
 
 > import { notFound } from "next/navigation";
 
-  This is from next - we can create our own Custom Not Found Page
-  <ins>Note:<.ins>  Please see screenshot 07-special-name-for-pages.png in docs folder
+This is from next - we can create our own Custom Not Found Page
+<br />  
+<ins>Note:<.ins>  Please see screenshot 07-special-name-for-pages.png in docs folder
+
 </details>
 
 
