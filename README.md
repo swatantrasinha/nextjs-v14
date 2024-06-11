@@ -292,8 +292,9 @@ To test : http://localhost:3000/snippets/1 - will display snippet title
 
 <details>
   <summary>Not Found Page </summary>
-  In the above code inside function ** SnippetShowPage ** we saw 
-  > import { notFound } from "next/navigation";
+In the above code inside function **SnippetShowPage** , we saw below code : 
+<br />
+> import { notFound } from "next/navigation";
 
   This is from next - we can create our own Custom Not Found Page
   Note: 
