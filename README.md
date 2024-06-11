@@ -304,9 +304,31 @@ This is from next - we can create our own Custom Not Found Page
 <br />  
 <ins> Note:   </ins>  **Please see screenshot 07-special-name-for-pages.png in docs folder**
 
+path : snippets/src/app/snippets/[id] -> create a new file not-found.tsx
+<br />
+
+not-found.tsx
+-------------
+```javascript
+export default function SnippetNotFoud() {
+    return (
+    <div>
+        <h1 className='text-xl bold'> 
+            Sorry, we could not find that particular snippet
+        </h1>
+    </div>
+)}
+```
+<br />
+To test : http://localhost:3000/snippets/172 : it wil show custom not found page
+<br />
+
 
 </details>
 
+<details>
+<summary>Loading Snippers </summary>
 
+</details>
 </details>
 
