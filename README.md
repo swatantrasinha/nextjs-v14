@@ -352,9 +352,55 @@ add below code before fetching data <br />
 > await new Promise((r) => setTimeout(r,2000)); // temp code to show loading
 
 To test : http://localhost:3000/snippets/1 : it wil show Loading... and then data for snippet <br />
-
 </details>
 
+<details>
+<summary> Adding Link for Vew Snippets and Create New Snippet styles </summary>
+In path:   src/app/page.tsx <br/>
+
+we are only displaying title as : <br />
+
+
+```javascript
+    <div key={snippet.id}>
+       {snippet.title}
+    </div>
+```
+
+```javascript
+import Link from 'next/link';
+import {db} from '@/db';
+
+
+export default async function Home() {
+  const snippets= await db.snippet.findMany();
+  const renderedSnippets= snippets.map((snippet) => {
+    return (
+    <Link 
+      key={snippet.id} 
+      className='flex justify-between items-center p-2 border rounded'
+      href={`/snippets/${snippet.id}`}
+      >
+        <div> {snippet.title} </div>
+        <div>View</div>
+    
+  </Link>
+    )})
+  return (
+    <div>
+      <div className='flex m-2 justify-between items-center'>
+        <h1 className='text-xl font-bold'> Snippets </h1>
+        <Link href="/snippets/new" className='border p-2 rounded'> New </Link>
+      </div>
+      <div className="flex flex-col gap-2">{renderedSnippets}</div>
+    </div>
+  );
+}
+```
+
+
+
+</details>
 
 
 </details>
