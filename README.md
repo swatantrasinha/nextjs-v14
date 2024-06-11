@@ -403,10 +403,11 @@ export default async function Home() {
 
 <details>
 <summary> Styling View Snippet Page  </summary>
-Lets add **Edit and Delete** Buttons and also display code snippets with styling <br />
+Lets add Edit and Delete Buttons and also display code snippets with styling <br />
 In <ins>Path: </ins>   src/app/snippets/[id]/page.tsx 
 <br/> 
 add the below code in returning jsx 
+<br />
   
 ```javascript
   return (
@@ -424,6 +425,50 @@ add the below code in returning jsx
     </div>
   )
 ```  
+</details>
+
+<details>
+<summary> Link to Edit Snippet Page  </summary>
+In <ins> Path: </ins>ins> snippets/src/app/snippets/[id] => create new folder edit => add new file : page.tsx
+<br />
+  
+```javascript
+interface SnippetEditPagProps {
+    params: {
+        id: string;
+    }
+}
+export default function EditSnippetPage(props: SnippetEditPagProps) {
+    const id= parseInt(props.params.id);
+    return (
+    <div>
+        Edit Code for SnippedId : {`${id}`}
+    </div>
+)}
+```
+
+<br />
+
+To test : http://localhost:3000/snippets/1/edit
+<br />
+It will show :  
+
+> Edit Code for SnippedId : 1
+<br />
+
+Now lets add link to above page in Edit button of view snippets page 
+<br />
+Also we will change Edit Button to Link <br />
+We will remove this <br />
+```javascript
+<button className="p2 border rounded">Edit</button>
+```
+<br /> and add below : <br />
+
+```javascript
+<Link href={`/snippets/${snippet.id}/edit`} className="p2 border rounded">Edit</Link>
+```
+
 </details>
 
 
