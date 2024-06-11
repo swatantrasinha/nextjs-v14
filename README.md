@@ -433,17 +433,27 @@ In <ins> Path: </ins>ins> snippets/src/app/snippets/[id] => create new folder ed
 <br />
   
 ```javascript
+import { db } from "@/db";
+import { notFound } from "next/navigation";
 interface SnippetEditPagProps {
     params: {
         id: string;
     }
 }
-export default function EditSnippetPage(props: SnippetEditPagProps) {
+export default async function EditSnippetPage(props: SnippetEditPagProps) {
     const id= parseInt(props.params.id);
+    const snippet= await db.snippet.findFirst({
+        where: {id}
+    })
+    
+    if(!snippet) {
+        return notFound();
+    }
+
     return (
-    <div>
-        Edit Code for SnippedId : {`${id}`}
-    </div>
+        <div>
+            Editing snippet with title : {snippet.title}
+        </div>
 )}
 ```
 
