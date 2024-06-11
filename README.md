@@ -399,10 +399,14 @@ export default async function Home() {
 }
 ```
 
-
-
 </details>
 
+<details>
+<summary> Styling View Snippet Page  </summary>
+Lets add Edit and Delete Buttons and also display code snippets with styling <br />
+In <ins>Path: </ins>   src/app/snippets/[id]/page.tsx <br/> 
 
+  
+</details>
 </details>
 
