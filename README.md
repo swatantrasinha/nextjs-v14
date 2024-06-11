@@ -254,7 +254,7 @@ Till now we saw:  <br/>
 <br />
 We will see how to view/edit/delete snippet <br />
 <details>
-  <summary> View Snippet </summary>
+<summary> View Snippet </summary>
   
 To view snippet - we will make sure page url is /snippets/{snippedId}
 <br />
@@ -291,8 +291,8 @@ To test : http://localhost:3000/snippets/1 - will display snippet title
 
 
 <details>
-  <summary>Not Found Page </summary>
-In the above code inside function **SnippetShowPage** , we saw below code : 
+<summary>Not Found Page </summary>
+In the above code inside function SnippetShowPage , we saw below code : 
 <br />
 > import { notFound } from "next/navigation";
 
