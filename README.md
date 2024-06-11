@@ -286,7 +286,10 @@ export default async function SnippetShowPage(props:SnippetShowPageProps) {
 }
 ```
 
-To test : http://localhost:3000/snippets/1 - will display snippet title
+To test : 
+- http://localhost:3000/snippets/1 - will display snippet title
+- http://localhost:3000/snippets/172 - will display not found page
+
 </details>
 
 
@@ -300,6 +303,7 @@ In the above code inside function SnippetShowPage , we saw below code :
 This is from next - we can create our own Custom Not Found Page
 <br />  
 <ins> Note:   </ins>  **Please see screenshot 07-special-name-for-pages.png in docs folder**
+
 
 </details>
 
