@@ -366,6 +366,7 @@ we are only displaying title as : <br />
        {snippet.title}
     </div>
 ```
+Lets remove this as add code for Links to View Snippets and Create New Snippets
 
 ```javascript
 import Link from 'next/link';
