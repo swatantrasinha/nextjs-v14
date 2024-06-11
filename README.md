@@ -253,8 +253,10 @@ Till now we saw:  <br/>
 - fetching snippets
 <br />
 We will see how to view/edit/delete snippet <br />
-
-to view snippet - we will make sure page url is /snippets/{snippedId}
+<details>
+  <summary> View Snippet </summary>
+  
+To view snippet - we will make sure page url is /snippets/{snippedId}
 <br />
 inside src -> app -> snippets
 <br />
@@ -285,5 +287,18 @@ export default async function SnippetShowPage(props:SnippetShowPageProps) {
 ```
 
 To test : http://localhost:3000/snippets/1 - will display snippet title
+</details>
+
+
+<details>
+  <summary>Not Found Page </summary>
+  In the above code inside function ** SnippetShowPage ** we saw 
+  > import { notFound } from "next/navigation";
+
+  This is from next - we can create our own Custom Not Found Page
+  Note: 
+</details>
+
+
 </details>
 
