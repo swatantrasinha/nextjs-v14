@@ -482,6 +482,44 @@ We will remove this <br />
 
 </details>
 
+<details>
+<summary> Client Component in a Server Component </summary>
+  We have link to Edit Snippet Page now
+  Lets makes changes to getch data first and then we will proceed to edit it 
+
+```javascript
+import { db } from "@/db";
+import { notFound } from "next/navigation";
+interface SnippetEditPagProps {
+    params: {
+        id: string;
+    }
+}
+export default async function EditSnippetPage(props: SnippetEditPagProps) {
+    const id= parseInt(props.params.id);
+    const snippet= await db.snippet.findFirst({
+        where: {id}
+    })
+    
+    if(!snippet) {
+        return notFound();
+    }
+
+    return (
+        <div>
+            Editing snippet with title : {snippet.title}
+        </div>
+)}
+```
+<br />
+
+We will use third party package React Monaco Editor <br />
+- it requires hooks and event handler to work correctly
+- so we need to use client component
+<br />
+The above component cannot be converted to client component since its doing data fetching activities.
+</details>
+
 
 </details>
 
