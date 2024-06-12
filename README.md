@@ -624,6 +624,15 @@ export default function SnippetEditForm({snippet}: SnippetEditFormProps) {
 
 <details>
 <summary> Server Actions in Details </summary>
+So Edit functionality is done , next is to add a Save button on click of which updated data should be stored in DB <br />
+We can plan to do this using "Server Action" similar to createSnippet in SnippetCreatePage page <br />
+where we declare at top of  function- use Server so that its treated as "Server Action" <br />
+<br /> <br />
+Unfortunately, we will not be able to do it here in SnippetEditForm -> handleEditorChange function <br />
+The reason is <ins> ServerAction cannot be defined in Client Components </ins>
+  
 </details>
+
+
 </details>
 
