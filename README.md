@@ -485,7 +485,7 @@ We will remove this <br />
 <details>
 <summary> Client Component in a Server Component </summary>
   We have link to Edit Snippet Page now
-  Lets makes changes to getch data first and then we will proceed to edit it 
+  Lets makes changes to fetch data first and then we will proceed to edit it 
 
 ```javascript
 import { db } from "@/db";
@@ -517,7 +517,34 @@ We will use third party package React Monaco Editor <br />
 - it requires hooks and event handler to work correctly
 - so we need to use client component
 <br />
-The above component cannot be converted to client component since its doing data fetching activities.
+The above component cannot be converted to client component since its doing data fetching activities. <br/>
+So the plan is now see 08-call-clientComp-from-serverComp.png
+<br />
+In src -> create a new folder "components" -> new file "snippet-edit-form.tsx"
+```javascript
+
+'use client';
+import type { Snippet } from "@prisma/client";
+
+interface SnippetEditFormProps {
+    snippet: Snippet
+}
+export default function SnippetEditForm({snippet}: SnippetEditFormProps) {
+    return (
+        <div>
+            Client Component has snippet with title : {snippet.title}
+        </div>
+    )
+}
+
+```
+<br />
+Now we will render this client component from function SnippetEditPage in Server component <br />
+snippets/src/app/snippets/[id]/edit/page.tsx <br />
+
+> import SnippetEditForm from "@/components/snippet-edit-form";
+
+> <SnippetEditForm snippet={snippet} />
 </details>
 
 
