@@ -514,13 +514,23 @@ export default async function EditSnippetPage(props: SnippetEditPagProps) {
 <br />
 
 We will use third party package React Monaco Editor <br />
+
 - it requires hooks and event handler to work correctly
 - so we need to use client component
+See 08-Monaco-Editor.png
 <br />
-The above component cannot be converted to client component since its doing data fetching activities. <br/>
-So the plan is now see 08-call-clientComp-from-serverComp.png
+One option to think is to convert the above component to client component but this cannot be done since its doing data fetching activities. <br/>
+
+<ins>Remember </ins> Client component usually do not do data fetching and certainly not using async-await async activities directly in body of component <br />
+
+So the plan is now to create a new client component : SnippetEditForm <br />
+This client component will have state and event handler and will use third party - "Monaco-Editor" <br />
+see 09-call-clientComp-from-serverComp.png
+
 <br />
+
 In src -> create a new folder "components" -> new file "snippet-edit-form.tsx"
+
 <br />
 
 ```javascript
