@@ -629,8 +629,11 @@ We can plan to do this using "Server Action" similar to createSnippet in Snippet
 where we declare at top of  function- use Server so that its treated as "Server Action" <br />
 <br /> <br />
 Unfortunately, we will not be able to do it here in SnippetEditForm -> handleEditorChange function <br />
-The reason is <ins> ServerAction cannot be defined in Client Components </ins>
-  
+The reason is <ins> ServerAction cannot be defined in Client Components </ins> 
+<br />
+It will throw error if we try to do so and suggest alternative way to use Server Action inside a client component <br />
+Actually we cannot define ServerAction in client component however we can use it , lets see how <br />
+
 </details>
 
 
