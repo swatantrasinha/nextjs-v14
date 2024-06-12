@@ -564,6 +564,13 @@ and then render SnippetEditForm component
         </div>
 )
 ```
+To test : http://localhost:3000 -> show snippets list -> click view on first snippet -> http://localhost:3000/snippets/1  <br />
+click Edit -> it will show => Client Component has snippet with title : Function that adds numbers
+<br />
+Now inspect network tab : check for "Edit" and then preview tab it will show : Client Component has snippet with title : Function that add Numbers
+<br />
+This content is being produced by a client component and this client component is being rendered by server. <br />
+So this conforms the fact we learnt earlier that client component gets one time rendered in server <br />
 
 </details>
 
