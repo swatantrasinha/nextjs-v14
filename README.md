@@ -574,6 +574,9 @@ So this conforms the fact we learnt earlier that client component gets one time 
 
 </details>
 
-
+<details>
+<summary> Adding Monaco Editor </summary>
+  
+</details>
 </details>
 
