@@ -639,7 +639,129 @@ There are 2 options:
 
 <ins>Note:</ins> Option2 is preferred but depends on case
 
+Lets move with Option2 : Defining Server Action in separate file  <br />
+src -> new folder -> actions  <br />
+and then new file -> index.ts <br />
 
+Now we will define serverAction but lets discuss how to call the server action <br />
+
+See snapshot: 12-Option-to-call-serverAction-In-ClientComp.png
+<br />
+We will implement Option1 now and also add the delete functionality with serverAction : <br />
+<br />
+
+src -> actions -> index.ts (new file)
+-------------------------------------
+```javascript
+'use server';
+import { redirect } from "next/navigation";
+import { db } from "@/db";
+
+
+export async function editSnippet(id: number, code: string) {
+    console.log('editSnippet called !!!');
+    console.log(id, code);
+    await db.snippet.update({
+        where: {id},
+        data: {code},
+    });
+
+    redirect(`/snippets/${id}`);
+}
+
+
+export async function deleteSnippet(id: number) {
+    await db.snippet.delete({
+        where: {id},
+    });
+
+    redirect('/');
+}
+```
+
+
+<br />
+
+src -> components -> snippet-edit-form.tsx
+------------------------------------------
+Two changes in this file : <br />
+
+1. Since we decided to use Option1 above so need to create a form and put button inside it , the action in form will be in step2
+<br />
+
+
+```javascript
+   <form action={editSnippetAction}>
+        <button type='submit' className="p-2 border rounded">Save</button>
+      </form>
+```
+
+2. use serverAction and bind to create a preLoaded action  <br />
+
+
+> const editSnippetAction= actions.editSnippet.bind(null, snippet.id, code);
+
+The complete code is :
+
+
+
+```javascript
+'use client';
+import type { Snippet } from "@prisma/client";
+import Editor from '@monaco-editor/react';
+import {useState} from 'react';
+import * as actions from "@/actions";
+
+interface SnippetEditFormProps {
+    snippet: Snippet
+}
+export default function SnippetEditForm({snippet}: SnippetEditFormProps) {
+    const [code, setCode] = useState(snippet.code);
+
+    const handleEditorChange = (value:string = "") => {
+        console.log(value);
+        setCode(value); // updated code is saved in state now - will be passed to ServerAction later
+    }
+
+    const editSnippetAction= actions.editSnippet.bind(null, snippet.id, code); 
+
+    return (
+        <div>
+            <Editor
+                height="40vh"
+                theme="vs-dark"
+                language="javascript"
+                defaultValue={snippet.code}
+                options={{minimap: {enabled: false}}} 
+                onChange={handleEditorChange}
+      />
+
+      <form action={editSnippetAction}> 
+        <button type='submit' className="p-2 border rounded">Save</button>
+      </form>
+
+        </div>
+    )
+}
+```
+
+src -> app -> snippets -> [id] -> page.tsx
+------------------------------------------
+We saw in snippet-edit-form.tsx file how we wrapped Edit Button in form tag for action  
+and then created a preLoaded action <br />
+
+Similar to that we will do in this file and we will wrap Delete Button in form tag and create preLoaded action to execute on Submit   <br />
+
+> const deleteSnippetAction = actions.deleteSnippet.bind(null, snippet.id);
+
+<br />
+
+```javascript
+ <form action={deleteSnippetAction}>
+    <button className="p2 border rounded">Delete</button>
+  </form>
+```
+ 
 </details>
 
 
