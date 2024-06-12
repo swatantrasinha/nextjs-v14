@@ -521,8 +521,9 @@ The above component cannot be converted to client component since its doing data
 So the plan is now see 08-call-clientComp-from-serverComp.png
 <br />
 In src -> create a new folder "components" -> new file "snippet-edit-form.tsx"
-```javascript
+<br />
 
+```javascript
 'use client';
 import type { Snippet } from "@prisma/client";
 
@@ -536,15 +537,24 @@ export default function SnippetEditForm({snippet}: SnippetEditFormProps) {
         </div>
     )
 }
-
 ```
 <br />
+
 Now we will render this client component from function SnippetEditPage in Server component <br />
 snippets/src/app/snippets/[id]/edit/page.tsx <br />
 
 > import SnippetEditForm from "@/components/snippet-edit-form";
 
-> <SnippetEditForm snippet={snippet} />
+and then render SnippetEditForm component 
+```javascript
+ return (
+        <div>
+            {/* Editing snippet with title : {snippet.title} */}
+            <SnippetEditForm snippet={snippet} />
+        </div>
+)
+```
+
 </details>
 
 
