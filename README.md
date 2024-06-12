@@ -633,6 +633,12 @@ The reason is <ins> ServerAction cannot be defined in Client Components </ins>
 <br />
 It will throw error if we try to do so and suggest alternative way to use Server Action inside a client component <br />
 Actually we cannot define ServerAction in client component however we can use it , lets see how <br />
+There are 2 options:
+- See screenshot : 10-Option1-use-ServerAction-In_ClientComp.png -> Define Server Action in a Server Component and pass it as props to the Client Component  
+- See screenshot : 11-Option2-use-ServerAction-In_ClientComp.png -> Define Server Action in separate file and import in Client Component  
+
+<ins>Note:</ins> Option2 is preferred but depends on case
+
 
 </details>
 
